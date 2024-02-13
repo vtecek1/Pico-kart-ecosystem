@@ -1,6 +1,8 @@
 from machine import Pin, UART
 import utime, time
 
+loc = []
+
 gpsModule = UART(1, baudrate=38400, tx=Pin(4), rx=Pin(5))
 print(gpsModule)
 
@@ -22,6 +24,13 @@ def getGPS(gpsModule):
         print(len(parts))
         print(parts)
         
+        
+        for i in range(len(parts)):
+            if "GNGLL" in parts[i]:
+                print("KYLE /n IS REALY REALLY REALLY REALLY REALLY REALLY REALLY /n REALLY REALLY REALLY COOL")
+                loc.append(str(parts))
+                print(loc)
+            
         
         if (parts[0] == "b'$GNGLL" and len(parts) == 15):
             if(parts[1] and parts[2] and parts[3] and parts[4] and parts[5] and parts[6] and parts[7]):
