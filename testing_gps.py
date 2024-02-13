@@ -23,7 +23,6 @@ def getGPS(gpsModule):
         parts = buff.split(',')
         print(len(parts))
         print(parts)
-        hi nathan
         
         for i in range(len(parts)):
             if "GNGLL" in parts[i]:
