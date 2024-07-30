@@ -13,6 +13,7 @@ LCD_RST  = 15
 TP_CS    = 16
 TP_IRQ   = 17
 
+
 mode = 'race'
 
 class LCD_3inch5(framebuf.FrameBuffer):
