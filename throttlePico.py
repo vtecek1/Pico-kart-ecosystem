@@ -4,7 +4,7 @@ from machine import ADC # type: ignore
 import utime # type: ignore
  
 
- 
+
 mode = 'fsddrag'
 brake = True
 throttleInput = 10
@@ -17,6 +17,12 @@ while True:
     adc_out = ADC(26)
     pwm = machine.PWM(adc_out)
     
+    if  machine.pin(2) == '1':
+        mode = 'drag'
+    elif  machine.pin(3) == '1':
+        mode = 'race'
+    elif  machine.pin(4) == '1':
+        mode = 'eco'
     
     while mode == 'drag':
         if throttleInput >= 10 and brake == True:
