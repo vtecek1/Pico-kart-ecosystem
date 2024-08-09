@@ -1,5 +1,5 @@
-from machine import Pin,SPI,PWM
-import framebuf
+from machine import Pin,SPI,PWM # type: ignore
+import framebuf # type: ignore
 import time
 import os
 

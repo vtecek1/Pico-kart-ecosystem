@@ -1,7 +1,7 @@
 import time
-import machine
-from machine import ADC
-import utime
+import machine # type: ignore
+from machine import ADC # type: ignore
+import utime # type: ignore
  
 
  

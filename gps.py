@@ -1,5 +1,5 @@
-from machine import Pin, UART
-import utime, time
+from machine import Pin, UART # type: ignore
+import utime, time # type: ignore
 
 gpsModule = UART(1, baudrate=38400, tx=Pin(4), rx=Pin(5))
 print(gpsModule)

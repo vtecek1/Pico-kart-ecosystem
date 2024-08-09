@@ -1,5 +1,5 @@
-from machine import Pin, UART
-import utime, time
+from machine import Pin, UART # type: ignore
+import utime, time # type: ignore
 
 loc = []
 
