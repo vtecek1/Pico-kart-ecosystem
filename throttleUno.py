@@ -11,11 +11,9 @@ throttleInput = 10
 
 while True:
     
-    adc = ADC(27)
+    adc = ADC(19)
     throttleInput = adc.read_uv()
     print(throttleInput)
-    adc_out = ADC(26)
-    pwm = machine.PWM(adc_out)
     
     
     while mode == 'drag':
@@ -27,9 +25,6 @@ while True:
             throttleOutput = 0
         #print(throttleOutput)
         
-        pwm.freq(500)
-        pwm.duty((1024/100)*throttleOutput)
-        
     while mode == 'race':
         if throttleInput > 90:
             throttleOutput = 100
@@ -37,15 +32,9 @@ while True:
             throttleOutput = throttleInput*1.1
         else:
             throttleOutput = 0
-            
-        pwm.freq(500)
-        pwm.duty((1024/100)*throttleOutput)
         
     while mode == 'eco':
         previous = throttleInput
         time.sleep(0.3)
         throttleOutput = (previous + throttleInput)/2   
         print('Throttle In: ' + throttleInput + 'Throttle In: ' + throttleOutput)
-        
-        pwm.freq(500)
-        pwm.duty((1024/100)*throttleOutput)
